@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Bank of OnePiece</title>
+<link rel="icon" href="/images/logo.png">
+
+<style type="text/css">
+	body{
+		background-image: url("/images/Welcome.jpg");
+		background-size: 100% 850px;
+		background-repeat: no-repeat;
+		background-position: 0 -10px;
+	}
+	#head{
+		height: 60px;
+		font-family:serif;
+		font-variant: small-caps;
+		background-color: white;
+		opacity: 0.5;
+		background-color: skyblue;
+	}
+	h1{
+		opacity: 1;
+		padding-top: 5px;
+		padding-left: 10px;
+	}
+	#but{
+		position: absolute;
+		right: 20px;
+		top: 11px;
+		opacity: 0.7;
+	}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" 
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body id="bodyy">
+
+	
+
+	<!--  <nav class="navbar navbar-expand-md bg-dark navbar-dark">-->
+ 	<!-- Brand -->
+  <!--<a class="navbar-brand" href="#">Banking Management System</a>-->
+
+  <!-- Toggler/collapsibe Button -->
+  <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <!--<div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <!--  <a class="nav-link" href="#">Banking management</a> -->
+     <!-- </li>
+    </ul>
+  </div>
+</nav>-->
+
+<div id="head">
+<h1>Welcome To Bank Of OnePiece</h1>
+</div>
+<div id="but">
+	<a th:href = "@{/welcome/register}" class="btn btn-light btn-md">Create Account</a>&nbsp&nbsp&nbsp&nbsp&nbsp
+	<a th:href = "@{/welcome/login}" class="btn btn-light btn-md">Login</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Cash Deposit</title>
+<link rel="icon" href="/images/logo.png">
+<style type="text/css">
+	body{
+		background-image: url("/images/Deposit.jpg");
+		background-size: 100% 110vh;
+	}
+	#cont{
+		margin-top: 13%;
+		opacity: 0.8;
+	}
+	#box{
+		box-shadow: 1px 1px 5px black;
+	}
+</style>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" 
+integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+	
+	<div class="container" id="cont">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card" id="box">
+				<h1 class="text-center">Deposit Cash</h1>
+				<div class="card-body">
+					<form th:action="@{/loginOperation/deposit/{accountNo} (accountNo=${details.accountNo})}" method="post">
+						<div class="form-group">
+							<label>Enter Amount to Deposit</label>
+							<input type="number" name="balance" placeholder="Enter Amount" 
+							class="form-control"  required="required"/>
+						</div>
+						<div class=box-footer>
+							<button type="submit" class="btn btn-primary">Deposit</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br><br>
+	<center><h2><span th:text = "${msg}" style="background-color: white;"></span></h2></center>
+</body>
+</html>

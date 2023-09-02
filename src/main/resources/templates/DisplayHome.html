@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Bank of OnePiece</title>
+<link rel="icon" href="/images/logo.png">
+<style type="text/css">
+	body{
+		background-image: url("/images/Home.jpg");
+		background-size: 100% 100vh;
+	}
+	#head{
+		padding-right : 15px;
+		border-right: 2px solid white;
+		margin-top: 5px;
+		margin-left: 20px;
+	}
+	#name, #last{
+		margin-top: 5px;
+	}
+	#last{
+		position: relative;
+		left: 11px;
+	}
+	svg{
+		position: absolute;
+		z-index: 10;
+		color: white;
+		margin-top: 25.5px;
+		margin-left: 10px;
+	}
+	#services{
+		width: 350px;
+		border : 1px solid black;
+		border-radius: 5px;
+		margin: 10px;
+		text-align: center;
+		color: white;
+		opacity: 0.8;
+	}
+	#services:hover{
+		opacity: 1;
+	}
+	.serviceContainer{
+		display: flex;
+		justify-content: space-between;
+		position:relative;
+		top: 50px;
+		margin: 120px;
+	}
+	nav{
+		opacity: 0.9;
+	}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" 
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bank" viewBox="0 0 16 16">
+  <path d="m8 0 6.61 3h.89a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v7a.5.5 0 0 1 .485.38l.5 2a.498.498 0 0 1-.485.62H.5a.498.498 0 0 1-.485-.62l.5-2A.501.501 0 0 1 1 13V6H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 3h.89L8 0ZM3.777 3h8.447L8 1 3.777 3ZM2 6v7h1V6H2Zm2 0v7h2.5V6H4Zm3.5 0v7h1V6h-1Zm2 0v7H12V6H9.5ZM13 6v7h1V6h-1Zm2-1V4H1v1h14Zm-.39 9H1.39l-.25 1h13.72l-.25-1Z"/>
+</svg>
+</head>
+<body>
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <i class="bi bi-bank heading"></i>
+  <h3 class="navbar-brand" id="head">Bank Of OnePiece</h3>
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+     <li class="nav-item">
+        <a class="nav-link">Online Banking Management System</a>
+      </li>
+    </ul>
+  </div>
+    <h3 id="last" class="navbar-brand" th:text = "${details.lastName}"></h3>
+	<h3 id="name" class="navbar-brand" th:text = "${details.firstName}"></h3>
+    <h3 id="name" class="navbar-brand" th:text = "${details.accountNo}"></h3>
+  	<a style="color: white ; border: 1px solid white" class="nav-link" th:href = "@{/welcome/login}">Log out</a>
+</nav>
+
+<div class="serviceContainer">												
+<div id="services"><a class="btn btn-light btn-lg btn-block" th:href = "@{/loginOperation/displayBalance/{accountNo} (accountNo = ${details.accountNo})}">View Balance</a></div>
+<div id="services"><a class="btn btn-light btn-lg btn-block" th:href="@{/loginOperation/depositCash/{accountNo} (accountNo = ${details.accountNo})}">Deposit Cash</a></div>
+<div id="services"><a class="btn btn-light btn-lg btn-block" th:href="@{/loginOperation/withdrawMoney/{accountNo} (accountNo = ${details.accountNo})}">Withdraw Cash</a></div>
+</div>
+<div class="serviceContainer">
+<div id="services"><a class="btn btn-light btn-lg btn-block" th:href="@{/loginOperation/transfer/{accountNo} (accountNo = ${details.accountNo})}">Transfer Money</a></div>
+<div id="services"><a class="btn btn-light btn-lg btn-block" th:href="@{/loginOperation/transactionHistory/{accountNo} (accountNo = ${details.accountNo})}">Transaction History</a></div>
+<div id="services"><a class="btn btn-light btn-lg btn-block" th:href="@{/loginOperation/viewProfile/{accountNo} (accountNo = ${details.accountNo})}">View Profile</a></div>
+</div>
+</body>
+</html>
